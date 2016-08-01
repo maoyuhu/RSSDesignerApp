@@ -1,0 +1,59 @@
+//
+//  PrefixHeader.pch
+//  RSSDesignerApp
+//
+//  Created by FashionShow on 16/7/26.
+//  Copyright © 2016年 FashionShow. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import <UIKit/UIKit.h>  //UI
+#import <Foundation/Foundation.h>  //NS
+
+
+
+#import "UIView+RSSExtensionView.h" // view的分类
+#import "UIColor+RSSHexColor.h"  // 颜色
+#import "UIBarButtonItem+RSSExtensionBtn.h" // 一键创建BarButton
+#import "MBProgressHUD+MJ.h" //  全局蒙版的分类
+#import "MBProgressHUD.h"   //  全局蒙版
+#import "UIImage+RSSImage.h"  // image的分类
+#import "AppDelegate.h" // appDelegate
+#import "RSSButton.h" // 重写按钮
+#import "RSSConst.h" // 常量
+
+
+#ifdef DEBUG
+#define kLog(...) NSLog(__VA_ARGS__)
+#else
+#define kLog(...)
+#endif
+
+#define kLogFunc kLog(@"%s", __func__)
+
+#define kRGBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+//全局的颜色
+#define OrangeColorGlobal [UIColor colorWithHex:@"d00000"]
+#define kGlobalBgColor kRGBColor(255, 255, 255)
+#define BaseColorGlobal [UIColor colorWithHex:@"f4f4f4"] //全局底色
+#define kScreenW [UIScreen mainScreen].bounds.size.width
+#define kScreenH [UIScreen mainScreen].bounds.size.height
+
+//系统delegate
+/** 系统delegate */
+#define kSysDege ((AppDelegate *)[[UIApplication sharedApplication] delegate])
+
+//系统App
+#define kSysApp ((UIApplication *)[UIApplication sharedApplication])
+// 7.常用的对象
+#define kNotificationCenter [NSNotificationCenter defaultCenter]
+#define kNSUserDefaults [NSUserDefaults standardUserDefaults]
+
+// 消除一些警告 系统自带的 废弃的方法
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
+#endif
